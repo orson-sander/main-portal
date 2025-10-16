@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <title>Navigation Panal | Hacker114</title>
+    <link rel="icon" type="image/png" href="ppfn.png">
+    <!-- Cronitor RUM -->
+<script async src="https://rum.cronitor.io/script.js"></script>
+<script>
+    window.cronitor = window.cronitor || function() { (window.cronitor.q = window.cronitor.q || []).push(arguments); };
+    cronitor('config', { clientKey: '8b9ac14f693662c7e4489199bffaf6ae' });
+    const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
+        const lastVisit = localStorage.getItem('lastVisitDate');
+
+        if (lastVisit !== today) {
+            // If the last visit date is not today, track the viewer as unique
+            cronitor("track", "UniqueViewers");
+            localStorage.setItem('lastVisitDate', today); // Update the last visit date to today
+        }
+        const user = localStorage.getItem('user');
+
+        if (user != 1) {
+            // If the last visit date is not today, track the viewer as unique
+            cronitor("track", "AllTimeUniqueViewers");
+            localStorage.setItem('user', 1); // Update the last visit date to today
+        }
+</script>
+
+ <script src="https://cdn.jsdelivr.net/npm/@simondmc/popup-js@1.4.2/popup.min.js"></script>
+
+</head>
+<body>
+  <div id="starfield"></div>
+    <h1 id="title">Navigation Panel</h1>
+    <div id="searchdiv"><input type="text" name="search" id="search" placeholder="search"><span id="m" class="material-symbols-outlined">search</span></div>
+    <div id="ad" style="display: none;">
+      <div id="adtag">
+        ad
+      </div>
+    </div>
+    <div id="switchdiv">
+      <p style="text-wrap: wrap;"><b>About:blank<br> cloak</b></p>
+      <label class="switch" style="align-self: center;margin-bottom:30px;"> 
+        <input id="ab" type="checkbox" checked>
+        <span class="slider round"></span>
+      </label>
+    </div>
+    <div id="tilecontainer">
+    </div>
+    <button id="res" onclick="change()"></button>
+    <p>
+
+    </p>
+    <div id="feedback-button">
+      <a href="/form/index.html" target="_blank">Feedback</a>
+    </div>
+</body>
+</html>
+<script>
+  if (!localStorage.getItem("theme")) {
+    localStorage.setItem("theme", '1');  // Default to dark theme
+}
+  const starCount = 1000;  // Adjust for density
+const starfield = document.getElementById('starfield');
+
+function random(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
+for (let i = 0; i < starCount; i++) {
+    const star = document.createElement('div');
+    star.classList.add('star');
+
+    const size = random(0.5, 3);  // Vary star sizes
+    star.style.width = `${size}px`;
+    star.style.height = `${size}px`;
+
+    star.style.top = `${random(0, window.innerHeight)}px`;
+    star.style.left = `${random(0, window.innerWidth)}px`;
+
+    star.style.opacity = Math.random() * 0.8 + 0.2;
+    star.style.animationDuration = `${random(3, 8)}s`;
+
+    starfield.appendChild(star);
+}
+    var gamelist = [ 
+  {
+    "link": "games/webretro/index.html",
+    "imgSrc": "games/webretro/image.png",
+    "title": "WebRetro"
+  }, 
+  {
+    "link": "games/fnaf/index.html",
+    "imgSrc": "games/fnaf/logo.jpg",
+    "title": "FNAF"
+  }, 
+  {
+    "link": "games/fnaf2/index.html",
+    "imgSrc": "games/fnaf2/logo.jpg",
+    "title": "FNAF 2"
+  }, 
+  {
+    "link": "games/fnaf3/index.html",
+    "imgSrc": "games/fnaf3/logo.webp",
+    "title": "FNAF 3"
+  }, 
+  {
+    "link": "games/fnaf4/index.html",
+    "imgSrc": "games/fnaf4/logo.webp",
+    "title": "FNAF 4"
+  },
+  {
+    "link": "games/worlds-hardest-game-2/index.html",
+    "imgSrc": "games/worlds-hardest-game-2/the-worlds-hardest-game-2.jpg",
+    "title": "World's Hardest Game 2"
+  }
+];
+var ab = false;
+if (!localStorage.getItem('theme')) {
+    localStorage.setItem("theme", "1")
+ }
+
+ function change() {
+   if (localStorage.getItem('theme') == '1') {
+     localStorage.setItem("theme", '0')
+     themeToggle("light");
+   } else {
+     localStorage.setItem("theme", '1')
+     themeToggle("dark");
+   }
+ }
+ function themeToggle(sigma){
+   let root = document.documentElement;
+   if(sigma == "light"){
+       root.style.setProperty("--back", "rgb(230, 230, 230)");
+       root.style.setProperty("--font", "black");
+       root.style.setProperty("--tile", "rgb(210, 210, 210)");
+       document.getElementById("res").innerHTML= "<span id='g' class='material-symbols-outlined'>dark_mode</span>";
+       root.style.setProperty("--res", "rgba(11, 11, 11, 1)");
+       root.style.setProperty("--themeicon", "white");
+       root.style.setProperty("--grid", "rgb(189, 189, 189)");
+   }else if (sigma == "dark"){
+       root.style.setProperty("--back", "rgba(11, 11, 11, 1)");
+       root.style.setProperty("--font", "white");
+       root.style.setProperty("--tile", "rgba(15, 15, 15, 1)");
+       document.getElementById("res").innerHTML= "<span id='g' class='material-symbols-outlined'>light_mode</span>";
+       root.style.setProperty("--res", "rgb(230, 230, 230)");
+       root.style.setProperty("--themeicon", "black");
+       root.style.setProperty("--grid", "rgba(28, 28, 28, 1)");
+   }else{
+       console.log("Invalid theme var input")
+   }
+ }
+ var localskib;
+ if(localStorage.getItem('theme')=="1"){var localskib = "dark"}else{var localskib = "light"}
+ themeToggle(localskib);
+if (!localStorage.getItem("theme")) {
+    localStorage.setItem("theme", '1');  // Default to dark theme
+}
+var dataArr = {};
+window.dataArr = gamelist.sort((a, b) => a.title.localeCompare(b.title));
+
+$("#search").on('keypress keyup change input', function() { 
+    var div = document.getElementById("tilecontainer");
+    var arrival = $(this).val().toLowerCase();
+    div.innerHTML = "";
+    dataArr.filter(function(game) {
+        return (game.title.toLowerCase().indexOf(arrival) !== -1);
+    }).map(function(game) {
+
+        var tile = document.createElement('div');
+        tile.addEventListener('click', function() {location.href = game.link}, false);
+        tile.classList.add("tile");
+        tile.innerHTML = '<img src="'+game.imgSrc+'" alt="placeholder"><p class="sigma">'+game.title+'</p>';
+        div.append(tile);
+         
+    });
+    
+});
+function cloak(game) {
+  var win = window.open();
+  var url = game;
+  var iframe = win.document.createElement('iframe');
+  iframe.style.width = "100%";
+  iframe.style.height = "100%";
+  iframe.style.border = "none";
+  iframe.src = url;
+  win.document.body.style.padding = "0";
+  win.document.body.style.margin = "0";
+  win.document.body.appendChild(iframe);
+
+  // Check if the window is closed within 2 seconds
+  setTimeout(function() {
+    if (win.closed) {
+      showPopup("The about:blank page was closed too quickly. Your school might be blocking this feature. Toggle the About:blank cloak in the bottom right to resolve this issue.\nNote: Securly blocks about blank tabs when a classroom session is active but it wont block them outside of a session or close open tabs when a session is started.");
+    }
+  }, 500);
+}
+
+function showPopup(message) {
+  new Popup({
+    id: "about-blank-warning",
+    title: "Warning",
+    content: message,
+    buttonText: "OK"
+  }).show();
+}
+
+var div = document.getElementById("tilecontainer");
+div.innerHTML = ""; 
+dataArr.forEach(function(game) {
+    var tile = document.createElement('div');
+    tile.addEventListener('click', function() {
+      if(document.getElementById('ab').checked == false) {
+        location.href = game.link;
+      } else {
+        cloak(game.link);
+      }
+    }, false);
+    tile.classList.add("tile");
+    tile.innerHTML = '<img src="'+game.imgSrc+'" alt="placeholder"><p class="sigma">'+game.title+'</p>';
+    div.append(tile);
+});
+
+
+</script>
+<button id="back" onclick="window.open('/ppfn-static/','_self')"><span class="material-symbols-outlined">
+  arrow_back
+  </span></button>
