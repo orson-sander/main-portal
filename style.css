@@ -1,21 +1,21 @@
 :root {
-    --back: #0a0a0a; /* Darker, richer background */
-    --font: #e0e0e0; /* Softer white for text */
-    --tile: #1c1c1c; /* Slightly lighter tile for contrast */
-    --res: #00ffcc; /* Neon cyan for reset button */
-    --themeicon: #ff007a; /* Vibrant pink for theme icons */
-    --grid: rgba(50, 50, 50, 0.3); /* Subtle grid for depth */
-    --glow: 0 0 10px rgba(0, 255, 204, 0.5), 0 0 20px rgba(0, 255, 204, 0.3); /* Neon glow effect */
+    --back: rgba(11, 11, 11, 1);
+    --font: white;
+    --tile: rgba(15, 15, 15, 1);
+    --res: rgb(230, 230, 230);
+    --themeicon: black;
+    --grid: rgba(28, 28, 28, 1);
+    --glow: 0 0 8px rgba(255, 255, 255, 0.4), 0 0 16px rgba(255, 255, 255, 0.2); /* Subtle glow effect */
 }
 
 div {
     border-style: none;
 }
 
-/* Feedback button with a futuristic hover effect */
+/* Enhanced feedback button with a vibrant hover effect */
 #feedback-button {
     position: fixed;
-    right: -60px;
+    right: -55px;
     top: 40%;
     transform: rotate(-90deg);
     z-index: 999;
@@ -23,28 +23,28 @@ div {
 
 #feedback-button a {
     display: inline-block;
-    background: linear-gradient(45deg, #007bff, #ff007a); /* Gradient for vibrancy */
-    color: var(--font);
-    padding: 12px 24px;
+    background: linear-gradient(45deg, #007bff, #00ccff); /* Gradient for pop */
+    color: white;
+    padding: 10px 20px;
     text-decoration: none;
-    font-family: 'Orbitron', sans-serif; /* Futuristic font */
-    font-size: 18px;
-    border-radius: 8px 8px 0 0;
-    transition: all 0.4s ease;
+    font-family: 'Roboto', sans-serif; /* Modern font */
+    font-size: 16px;
+    border-radius: 5px 5px 0 0;
+    transition: all 0.3s ease;
     height: 50px;
     box-shadow: var(--glow);
 }
 
 #feedback-button a:hover {
-    background: linear-gradient(45deg, #0056b3, #ff4da6);
-    transform: translateY(-8px);
-    box-shadow: 0 0 15px rgba(255, 0, 122, 0.7);
+    background: linear-gradient(45deg, #0056b3, #0099cc);
+    transform: translateY(-5px);
+    box-shadow: 0 0 12px rgba(0, 204, 255, 0.6);
 }
 
 /* Ad with a subtle pulse animation */
 #ad {
     align-self: center;
-    background: linear-gradient(135deg, var(--tile), #2a2a2a);
+    background: linear-gradient(135deg, var(--tile), #2a2a2a); /* Subtle gradient */
     aspect-ratio: 5/1;
     width: 500px;
     margin: 0;
@@ -56,26 +56,26 @@ div {
 
 @keyframes pulse {
     0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.02); }
+    50% { transform: scale(1.01); }
 }
 
 #adtag {
-    background: linear-gradient(45deg, #ff007a, #00ffcc);
-    width: 24px;
-    height: 24px;
-    border-bottom-right-radius: 8px;
+    background: linear-gradient(45deg, #ff4d4d, #00ccff); /* Vibrant tag */
+    width: 20px;
+    height: 20px;
+    border-bottom-right-radius: 7px;
     box-shadow: var(--glow);
 }
 
-/* Enhanced body with a dynamic gradient and starfield */
+/* Original body background */
 body {
-    background: linear-gradient(135deg, #0a0a0a 0%, #1c2526 100%);
+    background-color: var(--back);
     color: var(--font);
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
-    font-family: 'Orbitron', sans-serif; /* Futuristic font */
+    font-family: Arial, Helvetica, sans-serif;
     width: 100vw;
     overflow-x: hidden;
     background-size: 40px 40px;
@@ -85,41 +85,42 @@ body {
     background-attachment: fixed;
     margin: 0;
     padding: 0;
-    position: relative;
 }
 
-/* Enhanced switchdiv with a cyberpunk aesthetic */
+/* Enhanced switchdiv with a sleek look */
 #switchdiv {
     position: fixed;
     bottom: 0;
     right: 0;
-    background: linear-gradient(135deg, rgba(28, 28, 28, 0.8), rgba(0, 255, 204, 0.2));
-    filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.8));
+    background: linear-gradient(135deg, color-mix(in srgb, var(--tile) 60%, transparent 40%), rgba(0, 204, 255, 0.2));
+    filter: drop-shadow(2px 4px 6px black);
     box-shadow:
-        inset -50px -50px 80px rgba(255, 255, 255, 0.1),
-        inset 0 20px 40px rgba(255, 255, 255, 0.08);
-    background-blend-mode: overlay;
-    padding: 12px;
+        inset -50px -50px 80px color-mix(in srgb, white 5%, transparent),
+        inset 0 20px 40px color-mix(in srgb, white 4%, transparent);
+    background-blend-mode: screen;
+    padding: 10px;
     z-index: 20;
-    width: 140px;
-    height: 120px;
+    width: 130px;
+    height: 110px;
     text-align: center;
-    border-top-left-radius: 60px;
+    border-top-left-radius: 50px;
     transition: all 0.3s ease;
 }
 
 #switchdiv:hover {
-    background: linear-gradient(135deg, rgba(28, 28, 28, 0.9), rgba(0, 255, 204, 0.3));
+    background: linear-gradient(135deg, color-mix(in srgb, var(--tile) 50%, transparent 50%), rgba(0, 204, 255, 0.3));
     box-shadow: var(--glow);
 }
 
 /* Enhanced toggle switch */
 .switch {
     position: relative;
+    bottom: 0px;
     display: inline-block;
-    width: 70px;
-    height: 40px;
+    width: 60px;
+    height: 34px;
     z-index: 5;
+    text-wrap: wrap;
 }
 
 .slider {
@@ -129,49 +130,58 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(90deg, #ccc, #888);
+    background: linear-gradient(90deg, #ccc, #999); /* Gradient for depth */
     transition: 0.4s;
-    border-radius: 40px;
+    border-radius: 34px;
 }
 
 .slider:before {
     position: absolute;
     content: "";
-    height: 32px;
-    width: 32px;
+    height: 26px;
+    width: 26px;
     left: 4px;
     bottom: 4px;
-    background: linear-gradient(45deg, #fff, #00ffcc);
+    background: linear-gradient(45deg, white, #e0e0e0);
     transition: 0.4s;
     border-radius: 50%;
     box-shadow: var(--glow);
 }
 
 input:checked + .slider {
-    background: linear-gradient(90deg, #2196F3, #ff007a);
+    background: linear-gradient(90deg, #2196F3, #00ccff);
 }
 
 input:focus + .slider {
-    box-shadow: 0 0 2px #2196F3, var(--glow);
+    box-shadow: 0 0 1px #2196F3, var(--glow);
 }
 
 input:checked + .slider:before {
-    transform: translateX(30px);
+    transform: translateX(26px);
 }
 
-/* Enhanced tile with a futuristic hover effect */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* Enhanced tile with a modern hover effect */
 .tile {
-    background: linear-gradient(135deg, rgba(28, 28, 28, 0.8), rgba(0, 255, 204, 0.2));
-    filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.8));
+    background: linear-gradient(135deg, color-mix(in srgb, var(--tile) 60%, transparent 40%), rgba(0, 204, 255, 0.2));
+    filter: drop-shadow(2px 4px 6px black);
     box-shadow:
-        inset -50px -50px 80px rgba(255, 255, 255, 0.1),
-        inset 0 20px 40px rgba(255, 255, 255, 0.08);
-    background-blend-mode: overlay;
-    border-radius: 25px;
-    margin: 12px;
+        inset -50px -50px 80px color-mix(in srgb, white 5%, transparent),
+        inset 0 20px 40px color-mix(in srgb, white 4%, transparent);
+    background-blend-mode: screen;
+    border-radius: 20px;
+    margin: 10px;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    scale: 1;
     transition: all 0.3s ease;
     text-decoration: none;
     align-items: center;
@@ -180,18 +190,18 @@ input:checked + .slider:before {
 }
 
 .tile:hover {
-    transform: scale(1.05) rotate(1deg); /* Slight rotation for dynamic effect */
-    background: linear-gradient(135deg, rgba(28, 28, 28, 0.9), rgba(0, 255, 204, 0.3));
+    transform: scale(1.03) rotate(0.5deg); /* Subtle rotation for flair */
+    background: linear-gradient(135deg, color-mix(in srgb, var(--tile) 50%, transparent 50%), rgba(0, 204, 255, 0.3));
     box-shadow: var(--glow);
 }
 
-/* Enhanced images with a subtle zoom effect */
+/* Enhanced images with a zoom effect */
 img {
-    width: 220px;
-    height: 220px;
+    width: 200px;
+    height: 200px;
     border-style: none;
-    border-top-right-radius: 25px;
-    border-top-left-radius: 25px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
     position: relative;
     top: 0;
     left: 0;
@@ -199,24 +209,24 @@ img {
 }
 
 img:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
-/* Sigma text with a neon glow */
+/* Sigma text with a subtle glow */
 .sigma {
     width: 100%;
     text-align: center;
     position: relative;
     bottom: 5px;
-    font-size: 14pt;
+    font-size: 13pt;
     height: 75px;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-shadow: 0 0 5px var(--res);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
 }
 
-/* Enhanced starfield with more dynamic stars */
+/* Original starfield */
 #starfield {
     position: fixed;
     top: 0;
@@ -230,71 +240,60 @@ img:hover {
 
 .star {
     position: absolute;
-    background: linear-gradient(45deg, #fff, #00ffcc);
+    background: linear-gradient(45deg, white, #e0e0e0); /* Subtle gradient */
     border-radius: 50%;
-    opacity: 0.6;
-    animation: twinkleStar 2s infinite ease-in-out alternate, driftStar 20s linear infinite;
+    opacity: 0.5;
+    animation: twinkleStar 3s infinite ease-in-out alternate;
 }
 
 @keyframes twinkleStar {
-    0%, 100% { opacity: 0.4; }
-    50% { opacity: 1; }
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.9; }
 }
 
-@keyframes driftStar {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(-100vw, 100vh); }
-}
-
-/* Enhanced reset button */
+/* Original reset button */
 #res {
     border-radius: 100%;
-    width: 60px;
-    height: 60px;
-    box-shadow: var(--glow);
+    width: 50px;
+    height: 50px;
+    box-shadow: 0px 0px 10px var(--font);
     position: fixed;
-    top: 15px;
-    right: 15px;
-    background: linear-gradient(45deg, var(--res), #ff007a);
+    top: 10px;
+    right: 10px;
+    background-color: var(--res);
     border: none;
     color: var(--themeicon);
     cursor: pointer;
-    transition: all 0.3s ease;
 }
 
-#res:hover {
-    transform: rotate(360deg);
-    box-shadow: 0 0 15px var(--res);
-}
-
-/* Enhanced titles with neon effects */
+/* Original title */
 #title {
-    font-size: 50pt;
+    font-size: 45pt;
     position: relative;
-    margin: 15px;
-    margin-top: 40px;
+    margin: 10px;
+    margin-top: 30px;
     width: 100vw;
     text-align: center;
-    text-shadow: 0 0 10px var(--res), 0 0 20px var(--themeicon);
 }
 
+/* Original sigma titles */
 #sigma {
-    font-size: 28pt;
-    margin: 15px;
+    font-size: 25pt;
+    position: relative;
+    margin: 10px;
     width: 100vw;
     text-align: center;
-    text-shadow: 0 0 8px var(--res);
 }
 
 #sigma2 {
-    font-size: 20pt;
+    font-size: 18pt;
+    position: relative;
     width: 100vw;
     text-align: center;
-    padding-bottom: 15px;
-    text-shadow: 0 0 5px var(--res);
+    padding-bottom: 10px;
 }
 
-/* Tile container with smooth transitions */
+/* Tile container with a subtle border enhancement */
 #tilecontainer {
     width: 100vw;
     position: relative;
@@ -305,58 +304,63 @@ img:hover {
 }
 
 #tilecontainer h2 {
-    margin-top: 25px;
-    margin-bottom: 15px;
-    border-bottom: 2px solid var(--res);
-    text-shadow: 0 0 5px var(--res);
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #00ccff; /* Vibrant border */
+    text-shadow: 0 0 5px rgba(0, 204, 255, 0.3);
 }
 
-/* Enhanced search bar with a sleek look */
+.section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Original search bar */
 #search {
     color: var(--font);
-    background: linear-gradient(135deg, var(--tile), rgba(0, 255, 204, 0.2));
+    background-color: var(--tile);
     border: none;
-    width: 420px;
-    font-size: 14pt;
-    padding: 12px;
-    margin: 25px;
+    width: 400px;
+    font-size: 13pt;
+    padding: 10px;
+    margin: 20px;
     outline: none;
-    border-radius: 12px;
-    box-shadow: var(--glow);
-    transition: all 0.3s ease;
-}
-
-#search:focus {
-    background: linear-gradient(135deg, var(--tile), rgba(0, 255, 204, 0.3));
-    box-shadow: 0 0 15px var(--res);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
 /* Enhanced blob input */
 #blob {
     color: var(--font);
-    background: linear-gradient(135deg, var(--tile), rgba(0, 255, 204, 0.2));
+    background: linear-gradient(135deg, var(--tile), rgba(0, 204, 255, 0.2));
     border: none;
-    width: 420px;
-    font-size: 14pt;
-    padding: 12px;
-    margin: 25px;
+    width: 400px;
+    font-size: 13pt;
+    padding: 10px;
+    margin: 20px;
     outline: none;
-    border-radius: 12px;
+    border-radius: 10px;
     box-shadow: var(--glow);
+    transition: all 0.3s ease;
+}
+
+#blob:focus {
+    box-shadow: 0 0 12px rgba(0, 204, 255, 0.5);
 }
 
 /* Enhanced download button */
 #download {
     position: relative;
     top: -60px;
-    left: 460px;
-    background: linear-gradient(45deg, var(--tile), #ff007a);
-    padding: 12px;
-    border-radius: 12px;
+    left: 450px;
+    background: linear-gradient(45deg, var(--tile), #00ccff);
+    padding: 10px;
+    border-radius: 10px;
     user-select: none;
-    width: 110px;
+    width: 100px;
     border: none;
-    font-size: 14pt;
+    font-size: 13pt;
     color: var(--font);
     box-shadow: var(--glow);
     transition: all 0.3s ease;
@@ -364,45 +368,38 @@ img:hover {
 
 #download:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 15px var(--themeicon);
+    box-shadow: 0 0 12px rgba(0, 204, 255, 0.5);
 }
 
 /* Enhanced magnifier button */
 #m {
     position: relative;
     top: 6px;
-    left: -22px;
-    background: linear-gradient(45deg, var(--tile), #00ffcc);
-    padding: 10px;
-    border-top-right-radius: 12px;
-    border-bottom-right-radius: 12px;
+    left: -20px;
+    background: linear-gradient(45deg, var(--tile), #00ccff);
+    padding: 8px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
     user-select: none;
-    width: 30px;
+    width: 25px;
     box-shadow: var(--glow);
 }
 
 #m:hover {
     cursor: pointer;
-    background: linear-gradient(45deg, var(--tile), #ff007a);
+    background: linear-gradient(45deg, var(--tile), #0099cc);
 }
 
-/* Enhanced back button */
+/* Original back button */
 #back {
     border-radius: 100%;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     position: fixed;
-    top: 15px;
-    left: 15px;
+    top: 10px;
+    left: 10px;
     border: none;
     color: var(--font);
     cursor: pointer;
-    background: linear-gradient(45deg, var(--tile), #ff007a);
-    box-shadow: var(--glow);
-    transition: all 0.3s ease;
-}
-
-#back:hover {
-    transform: rotate(360deg);
-    box-shadow: 0 0 15px var(--themeicon);
+    background-color: var(--tile);
 }
