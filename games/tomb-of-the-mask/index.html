@@ -1,0 +1,32 @@
+<html>
+<head>
+  <base target="_blank">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+    iframe {
+      border: none;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    var url = "https://script.google.com/macros/s/AKfycbxoVxYGN7Xdl_NzbwgubUu-7C8dH-1h8HPtboi7Y0Ha8X4_BAtvhIZOViyNR1x8ruNA/exec";
+    if (url) {
+      var iframe = document.createElement('iframe');
+      iframe.style.border = 'none';
+      iframe.style.width = '100%';
+      iframe.style.height = '100%';
+      iframe.style.margin = '0';
+      iframe.src = url;
+      document.body.appendChild(iframe);
+    }
+  </script>
+</body>
+</html>
